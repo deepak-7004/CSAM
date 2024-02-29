@@ -1,0 +1,115 @@
+{
+  "compilerOptions": {
+    "composite": false,
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": false,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUmdGlobalAccess": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "baseUrl": "./",
+    "checkJs": true,
+    // customConditions
+    "declaration": false,
+    // declarationDir
+    // declarationMap
+    "disableReferencedProjectLoad": false,
+    "disableSolutionSearching": false,
+    "disableSourceOfProjectReferenceRedirect": false,
+    "disableSizeLimit": true,
+    "diagnostics": false,
+    // downlevelIteration
+    // emitBOM
+    // emitDeclarationOnly
+    // emitDecoratorMetadata
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": false,
+    // experimentalDecorators
+    "explainFiles": false,
+    "extendedDiagnostics": false,
+    "forceConsistentCasingInFileNames": true,
+    // "generateCpuProfile": "profile.cpuprofile",
+    // importHelpers
+    // importsNotUsedAsValues -- deprecated
+    // inlineSourceMap
+    // inlineSources
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    // jsxFactory
+    // jsxFragmentFactory
+    // jsxImportSource
+    "lib": ["DOM", "DOM.Iterable","ESNext"],
+    "listEmittedFiles": false,
+    "listFiles": false,
+    // mapRoot
+    "maxNodeModuleJsDepth": 32,
+    "module": "ESNext",
+    "moduleDetection": "auto",
+    "moduleResolution": "Node",
+    // moduleSuffixes
+    "newLine": "lf",
+    "noEmit": true,
+    // noEmitHelpers
+    // noEmitOnError
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noLib": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "noResolve": false,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // outDir
+    // outFile
+    "paths": {
+      "csam/*": ["src/*"]
+    },
+    "plugins": [],
+    // preserveConstEnums
+    "preserveSymlinks": false,
+    // preserveValueImports -- deprecated
+    "preserveWatchOutput": false,
+    "pretty": true,
+    // reactNamespace
+    // removeComments
+    "resolveJsonModule": true,
+    // resolvePackageJsonExports,
+    // resolvePackageJsonImports,
+    // rootDir
+    // rootDirs
+    // skipDefaultLibCheck -- deprecated
+    "skipLibCheck": true,
+    // sourceMap
+    // sourceRoot
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    // stripInternal
+    "target": "ESNext",
+    "traceResolution": false,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    // typeRoots
+    "types": ["vitest/globals", "vite/client"],
+    "useDefineForClassFields": true,
+    "useUnknownInCatchVariables": true,
+    // verbatimModuleSyntax
+  },
+  "include": [
+    "src",
+    "vite.config.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "cypress",
+  ]
+}

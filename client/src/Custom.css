@@ -1,0 +1,284 @@
+.headerTop {
+  background: rgba(0, 0, 0, 0.28) !important;
+  backdrop-filter: blur(44px);
+}
+
+.MuiPaper-root {
+  background-color: transparent !important;
+}
+
+.MuiTabs-root button,
+.MuiPagination-ul button {
+  color: #fff;
+}
+
+.leaderboard_table.table>:not(caption)>*>* {
+  background-color: #030303;
+  color: #fff;
+}
+
+.monthtabs button {
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 8px;
+  position: relative;
+  overflow: visible;
+}
+
+/* .monthtabs .MuiTabs-flexContainer button:not(:last-child):after {
+  content: "";
+  background: #a6a6a6;
+  height: 4px;
+  width: 4px;
+  position: absolute;
+  right: -4px;
+  border-radius: 100%;
+} */
+
+.monthtabs button.Mui-selected {
+  background: linear-gradient(89.76deg, #E4B131 0.77%, #EDC820 77.58%, #FFF200 115.98%);
+  color: #222;
+}
+
+.monthtabs .MuiTabs-indicator {
+  display: none;
+}
+
+.leaderBoardFlex {
+  gap: 25px;
+}
+
+.leaderBoardFlex {
+  gap: 30px;
+}
+
+.leaderBoadsTabs button {
+  border: 1px solid #353434;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.leaderBoadsTabs button.Mui-selected {
+  background: #e4b131;
+  color: #222;
+}
+
+.leaderBoadsTabs .MuiTabs-indicator {
+  display: none;
+}
+
+.switch-field {
+  display: flex;
+}
+
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.switch-field label {
+  background-color: #141414;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  padding: 16px 36px;
+  margin-right: -1px;
+  border: 1px solid #353434;
+  transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+.switch-field input:checked+label {
+  box-shadow: none;
+  background: linear-gradient(89.76deg, #E4B131 0.77%, #EDC820 77.58%, #FFF200 115.98%);
+  color: #222;
+}
+
+.switch-field label:first-of-type {
+  border-radius: 8px 0 0 8px;
+}
+
+.switch-field label:last-of-type {
+  border-radius: 0 8px 8px 0;
+}
+
+.switch-field input:checked+label:first-of-type {
+  border-radius: 8px;
+  margin-right: -6px;
+  z-index: 9;
+}
+
+.switch-field input:checked+label:last-of-type {
+  border-radius: 8px;
+  margin-left: -6px;
+}
+
+.leaderboard_table.table>thead th {
+  color: #EDC820;
+}
+
+.MuiTabScrollButton-root svg {
+  fill: #fff;
+  background: #000312;
+}
+
+.card_news .card_item>img {
+  height: 210px;
+  object-fit: cover;
+}
+
+.news_cards .slick-prev:before{
+  content: url(./images/arrow-left.png);
+}
+
+.news_cards .slick-next:before{
+  content: url(./images/arrow-right.png);
+}
+
+
+.searchReads{
+  position: relative;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.searchOptions {
+  position: absolute !important;
+  right: 0;
+  top: 11px;
+  padding: 5px !important;
+}
+
+.btnSearch {
+  right: 45px;
+  top: 13px;
+}
+
+.cardArchives .arrow_external,
+.cardTools .arrow_external {
+  top: 50%;
+}
+
+.doFeedBack {
+  position: fixed !important;
+  right: -39px;
+  bottom: 34%;
+  z-index: 9;
+  background: linear-gradient(89.76deg, #E4B131 0.77%, #EDC820 77.58%, #FFF200 115.98%);
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  text-transform: capitalize;
+  transform: rotate(-90deg);
+  padding: 4px 18px;
+  border-radius: 10px 10px 0 0;
+}
+
+/* ----------------------- */
+/*----- Media Querys ----- */
+/* ----------------------- */
+@media(max-width: 768px) {
+  .banner_title h2 {
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  .banner_title h2::after,
+  .banner_title h2::before {
+    width: 50px;
+  }
+
+  .banner_title h2::after {
+    right: -65px;
+  }
+
+  .banner_title h2::before {
+    left: -65px;
+  }
+
+
+  .bg_video {
+    height: 115%;
+  }
+
+  .content_home {
+    height: 100%;
+    padding-top: 50px;
+  }
+
+  .content_home h2 {
+    font-size: 16px;
+    top: 72%;
+  }
+
+  .content_home h2 span {
+    font-size: 26px;
+  }
+
+  .navbar {
+    background: #000312;
+  }
+
+  .cards_img img {
+    width: 100%;
+  }
+
+  .content_home p {
+    padding: 0 15px;
+  }
+
+  .common_title {
+    font-size: 18px;
+  }
+
+  .common_title::after,
+  .common_title::before {
+    width: 50px;
+  }
+
+  .common_title::after {
+    right: -60px;
+  }
+
+  .common_title::before {
+    left: -60px;
+  }
+
+  .tools_cards .news_cards {
+    max-width: 100%;
+  }
+
+  .max-80 {
+    max-width: 100%;
+  }
+
+  .section_title h2 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .section_title h2::before,
+  .section_title h2::after {
+    width: 50px;
+  }
+
+  .section_title h2::before {
+    left: -65px;
+  }
+  
+  .section_title h2::after {
+    right: -65px;
+  }
+
+
+}

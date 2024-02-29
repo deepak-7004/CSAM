@@ -1,0 +1,92 @@
+{
+  "tabs": [
+    {
+      "label": "January",
+      "weeks": [
+        {
+          "weekNumber": 1,
+          "imagePath": "./images_public/lamp.png",
+          "weekTitle": "Week 1",
+          "content": {
+            "title": "Verify, verify, verify -",
+            "description": "If you receive an email concerning change of payment method or bank account, contact the payment recipient through another channel (phone) to verify this claim. Don’t reply directly to the email."
+          }
+        }
+      ]
+    },
+    {
+      "label": "February",
+      "weeks": [
+        {
+          "weekNumber": 2,
+          "imagePath": "./images_public/lamp.png",
+          "weekTitle": "Week 2",
+          "content": {
+            "title": "Verify, verify, verify -",
+            "description": "If you receive an email concerning change of payment method or bank account, contact the payment recipient through another channel (phone) to verify this claim. Don’t reply directly to the email."
+          }
+        }
+      ]
+    },
+    {
+      "label": "March",
+      "weeks": [
+        {
+          "weekNumber": 3,
+          "imagePath": "./images_public/lamp.png",
+          "weekTitle": "Week 3",
+          "content": {
+            "title": "Verify, verify, verify -",
+            "description": "If you receive an email concerning change of payment method or bank account, contact the payment recipient through another channel (phone) to verify this claim. Don’t reply directly to the email."
+          }
+        }
+      ]
+    },
+
+    {
+      "label": "April",
+      "weeks": [
+        {
+          "weekNumber": 4,
+          "imagePath": "./images_public/lamp.png",
+          "weekTitle": "Week 4",
+          "content": {
+            "title": "Verify, verify, verify -",
+            "description": "If you receive an email concerning change of payment method or bank account, contact the payment recipient through another channel (phone) to verify this claim. Don’t reply directly to the email."
+          }
+        }
+      ]
+    },
+
+    {
+      "label": "May",
+      "weeks": [
+        {
+          "weekNumber": 5,
+          "imagePath": "./images_public/lamp.png",
+          "weekTitle": "Week ",
+          "content": {
+            "title": "Verify, verify, verify -",
+            "description": "If you receive an email concerning change of payment method or bank account, contact the payment recipient through another channel (phone) to verify this claim. Don’t reply directly to the email."
+          }
+        }
+      ]
+    },
+
+    {
+      "label": "June",
+      "weeks": [
+        {
+          "weekNumber": 5,
+          "imagePath": "./images_public/lamp.png",
+          "weekTitle": "Week ",
+          "content": {
+            "title": "Verify, verify, verify -",
+            "description": "If you receive an email concerning change of payment method or bank account, contact the payment recipient through another channel (phone) to verify this claim. Don’t reply directly to the email."
+          }
+        }
+      ]
+    }
+
+  ]
+}

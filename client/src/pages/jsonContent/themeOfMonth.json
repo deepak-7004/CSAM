@@ -1,0 +1,25 @@
+{
+    "slides": {
+      "title": "Tip of The",
+      "subtitle": "Week"
+    },
+    "qwerty": {
+      "title": "qwerty vs In_Vader",
+      "content": [
+        {
+          "id": "qwerty",
+          "title": "Meet Qwerty",
+          "subTitle": "Hey BeerLover",
+          "image": "./images_public/qwert.png",
+          "text": "'' I am QWERTY! I keep brinigng new tips, videos, games and fun training content to keep yourself and ABI cyber secure. Make sure to visit the portal every week to earn points and badges based on your actions. Happy Learning :)"
+        },
+        {
+          "id": "inVader",
+          "title": "The In_Vader",
+          "image": "./images_public/vedar.png",
+          "text": "Like all great warriors &quot;QWERTY&quot;, our cybersecurity mascot, also has a nemesis, &quot;In_Vader&quot;. In_Vader is to Qwerty what, &quot;The Joker&quot; is to &quot;Batman&quot;. Watch them battle it out every month as both of them try to get the better of various situations."
+        }
+      ]
+    }
+  }
+  

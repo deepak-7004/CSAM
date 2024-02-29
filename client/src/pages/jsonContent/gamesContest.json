@@ -1,0 +1,20 @@
+{
+    "bannerTitle": "Games &",
+    "bannerSubtitle": "CONTESTS",
+    "bannerDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+    "tabs": [
+      {
+        "label": "Tab 1",
+        "content": "Content for Tab 1"
+      },
+      {
+        "label": "Tab 2",
+        "content": "Content for Tab 2"
+      },
+      {
+        "label": "Tab 3",
+        "content": "Content for Tab 3"
+      }
+    ]
+  }
+  

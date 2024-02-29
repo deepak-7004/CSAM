@@ -1,0 +1,100 @@
+env:
+  browser: true
+  cypress/globals: true
+globals:
+  JSX: true
+extends:
+  - 'plugin:@typescript-eslint/recommended'
+  # Temporarily disabling these due to an unknown issue causing it to think most imports are typed as any.
+  # - 'plugin:@typescript-eslint/recommended-type-checked'
+  - airbnb
+  - prettier
+  - 'plugin:array-func/all'
+  - 'plugin:cypress/recommended'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: true
+  tsconfigRootDir: .
+root: true
+plugins:
+  - '@typescript-eslint'
+  - prettier
+  - react-hooks
+  - promise
+  - cypress
+  - prefer-arrow
+rules:
+  react/react-in-jsx-scope: off
+  import/no-unresolved: off
+  import/extensions: off
+  import/no-extraneous-dependencies:
+    - error
+    - devDependencies: true
+  import/order:
+    - error
+    - groups:
+        - builtin
+        - external
+        - [internal, sibling, parent]
+      newlines-between: always
+      alphabetize:
+        order: 'asc'
+        caseInsensitive: true
+  no-restricted-imports:
+    - error
+    - patterns:
+      - './*'
+      - '../*'
+      - 'src/*'
+  sort-imports:
+    - error
+    - ignoreCase: true
+      ignoreDeclarationSort: true
+  prettier/prettier:
+    - error
+    - endOfLine: lf
+  no-console: 0
+  global-require: 0
+  no-param-reassign: 0
+  no-unused-vars: off
+  no-else-return: off
+  no-constant-condition: error
+  react/function-component-definition: off
+  no-underscore-dangle: off
+  camelcase:
+    - error
+    - properties: never
+      ignoreDestructuring: true
+      ignoreImports: true
+  no-plusplus:
+    - error
+    - allowForLoopAfterthoughts: true
+  no-restricted-syntax:
+    - error
+    - WithStatement
+    - LabeledStatement
+  react/jsx-filename-extension: off
+  react/jsx-one-expression-per-line: off
+  react/jsx-props-no-spreading: off
+  react/no-unescaped-entities:
+    - error
+    - forbid: ['>', '"', '}']
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: error
+  react/jsx-uses-react: error
+  react/prop-types: off
+  promise/param-names: error
+  promise/no-new-statics: error
+  promise/valid-params: error
+  promise/prefer-await-to-then: error
+  promise/prefer-await-to-callbacks: error
+  prefer-arrow/prefer-arrow-functions: 
+    - error
+    - disallowPrototype: true
+      singleReturnOnly: false
+      classPropertiesAllowed: false
+      allowStandaloneDeclarations: false
+overrides:
+  - files: ['cypress/**']
+    rules:
+      no-restricted-imports: off

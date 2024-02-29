@@ -1,0 +1,33 @@
+{
+    "heading": "CYBER SECURITY AWARENESS MONTH",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ullamco laboris nisi.",
+
+    "categories": {
+      "themeOfMonth": {
+        "title": "Theme of the month",
+        "image": "home_img1.png",
+        "link": "/Monthbanner"
+      },
+      "gamesAndContests": {
+        "title": "Games & Contest",
+        "image": "home_img2.png",
+        "link": "/Gamecontests"
+      },
+      "goodReads": {
+        "title": "Good Reads",
+        "image": "home_img3.png",
+        "link": "/Goodreads"
+      },
+      "leaderboard": {
+        "title": "Leaderboard",
+        "image": "home_img4.png",
+        "link": "/Leaderboard"
+      },
+      "toolsAndResources": {
+        "title": "Tools & Resources",
+        "image": "toolsResources.png",
+        "link": "/Toolsresources"
+      }
+    }
+  }
+  

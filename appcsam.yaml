@@ -1,0 +1,44 @@
+runtime: nodejs14
+service: csamreact
+
+handlers:
+- url: /(.*\.(gif|png|jpg|css|js))$
+  static_files: build/\1
+  upload: build/.*\.(gif|png|jpg|css|js)$
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
+
+env_variables:
+  APP_NAME: CSAM
+  APP_ENV: staging
+  APP_KEY: 'base64:YourAppKey'
+  APP_DEBUG: false
+  APP_URL: "https://your-app-url.com"
+  APP_STORAGE: /tmp
+  GOOGLE_CLOUD_PROJECT: 'abi-ghq-01190-cybersecurity'
+  GOOGLE_CLOUD_STORAGE_BUCKET: 'abi-ghq-01190-cybersecurity.appspot.com'
+  GOOGLE_CLOUD_STORAGE_PATH_PREFIX: 'public/storage'
+  GOOGLE_CLOUD_STORAGE_API_URI: null
+
+  AZURE_TENANT_ID: "your-azure-tenant-id"
+  AZURE_CLIENT_ID: "your-azure-client-id"
+  AZURE_CLIENT_SECRET: "your-azure-client-secret"
+  AZURE_REDIRECT_URI: "https://your-app-url.com/login/azure/callback"
+
+  DB_CONNECTION: mysql
+  DB_SOCKET: /cloudsql/your-project-id:your-region:your-cloud-sql-instance-name
+  DB_HOST: "localhost"
+  DB_PORT: 3306
+  DB_DATABASE: "your-database-name"
+  DB_USERNAME: "your-database-username"
+  DB_PASSWORD: "your-database-password"
+
+entrypoint: serve -s dist
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 5
+  cpu_utilization:
+    target_utilization: 0.65

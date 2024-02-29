@@ -1,0 +1,26 @@
+{
+    "bannerTitle": "Good",
+    "bannerSubtitle": "READS",
+    "bannerDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+    "latestNewsletterTitle": "Latest Newsletter",
+    "newsCards": [
+      {
+        "image": "./images_public/news_card1.png",
+        "category": "Cloud Security",
+        "author": "CSAM Team",
+        "date": "09 Oct, 2023",
+        "title": "Sugee: Loan Management System for Rural Sector.",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
+      }
+    ],
+    "suggestedArticlesTitle": "Suggested Articles",
+    "suggestedArticles": [
+      {
+        "image": "./images_public/article1.png",
+        "title": "Sugee: Loan Management System for Rural Sector.",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris dolor sit amet, consectetur adipiscing...",
+        "readMoreLink": "/#"
+      }
+    ]
+  }
+  
