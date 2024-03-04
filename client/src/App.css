@@ -185,7 +185,7 @@ span {
 .cardfourth:hover .hovr_state {
   background-color: #050C1A;
   border-radius: 25px;
-  height: 155px;
+  height: 165px;
   display: block;
   animation: fade_in_show 1s;
   transition: all 1s;
@@ -194,7 +194,7 @@ span {
 .cardsecond:hover .hovr_state {
   background-color: #050C1A;
   border-radius: 25px;
-  height: 155px;
+  height: 165px;
   display: block;
   animation: fade_in_show 1s;
   transition: all 1s;
@@ -203,7 +203,7 @@ span {
 .cardthird:hover .hovr_state {
   background-color: #050C1A;
   border-radius: 25px;
-  height: 155px;
+  height: 165px;
   display: block;
   animation: fade_in_show 1s;
   transition: all 1s;
