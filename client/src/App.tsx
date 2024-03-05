@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'csam/components/thememonth.css';
-import { Button } from '@mui/material';
+import { InteractionStatus, InteractionType } from '@azure/msal-browser';
+import { MsalAuthenticationTemplate, UnauthenticatedTemplate, useIsAuthenticated, useMsal } from '@azure/msal-react';
+import { Button, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import 'csam/App.css';
 import 'csam/Custom.css';
@@ -16,23 +18,37 @@ import Toolsresources from 'csam/pages/ToolsResources';
 import theme from 'csam/theme/theme';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="Monthbanner" element={<Monthbanner />} />
-          <Route path="Goodreads" element={<Goodreads />} />
-          <Route path="Gamecontests" element={<Gamecontests />} />
-          <Route path="Toolsresources" element={<Toolsresources />} />
-          <Route path="Archives" element={<Archives />} />
-          <Route path="Leaderboard" element={<Leaderboard />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    <Button>Feedback</Button>
-  </ThemeProvider>
-);
+const App = () => {
+  const isAuthenticated = useIsAuthenticated();
+  const { inProgress } = useMsal();
+
+  return (
+    <ThemeProvider theme={theme}>
+      <MsalAuthenticationTemplate interactionType={InteractionType.Redirect} authenticationRequest={{}}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="Monthbanner" element={<Monthbanner />} />
+              <Route path="Goodreads" element={<Goodreads />} />
+              <Route path="Gamecontests" element={<Gamecontests />} />
+              <Route path="Toolsresources" element={<Toolsresources />} />
+              <Route path="Archives" element={<Archives />} />
+              <Route path="Leaderboard" element={<Leaderboard />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </MsalAuthenticationTemplate>
+
+      {inProgress === InteractionStatus.None && !isAuthenticated && (
+        <UnauthenticatedTemplate>
+          <Typography>Your are not Authorized</Typography>
+        </UnauthenticatedTemplate>
+      )}
+
+      <Button>Feedback</Button>
+    </ThemeProvider>
+  );
+};
 
 export default App;

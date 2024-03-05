@@ -175,13 +175,13 @@
   bottom: 34%;
   z-index: 9;
   background: linear-gradient(89.76deg, #E4B131 0.77%, #EDC820 77.58%, #FFF200 115.98%);
-  font-size: 16px;
-  font-weight: 600;
-  color: #000;
-  text-transform: capitalize;
   transform: rotate(-90deg);
-  padding: 4px 18px;
-  border-radius: 10px 10px 0 0;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  text-transform: capitalize !important;
+  padding: 4px 18px !important;
+  border-radius: 10px 10px 0 0 !important;
 }
 
 /* ----------------------- */
