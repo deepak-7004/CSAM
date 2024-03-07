@@ -1,10 +1,10 @@
 // models/archiveName.js
 
-"use strict";
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const ArchiveName = sequelize.define(
-    "ArchiveName",
+    'ArchiveName',
     {
       id: {
         type: DataTypes.BIGINT.UNSIGNED,
@@ -26,9 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "archive_names",
+      tableName: 'archive_names',
       timestamps: false,
-    }
+    },
   );
 
   return ArchiveName;

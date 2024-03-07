@@ -1,5 +1,5 @@
 import { IMsalContext, useMsal } from '@azure/msal-react';
-import { NotifyOnChangeProps, useQuery, UseQueryResult } from '@tanstack/react-query';
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import axios, { type AxiosRequestConfig, AxiosResponse } from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ const getAuthToken = async (msalDetails: IMsalContext, navigate: NavigateFunctio
     let authResponse;
     try {
       authResponse = await axios<AuthResponse>({
-        url: 'https://watchtower-develop.ab-inbev.com/api/sso-login',
+        url: 'http://localhost:3001/api/users/sso-login',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const getAuthToken = async (msalDetails: IMsalContext, navigate: NavigateFunctio
       return null;
     }
     if (authResponse.status === 200) {
-      sessionStorage.setItem(AUTH_TOKEN_KEY, 'authResponse.data.access_token');
+      sessionStorage.setItem(AUTH_TOKEN_KEY, authResponse.data.access_token);
     } else if (authResponse.status === 404) {
       navigate('/Gamecontests');
       return null;
@@ -97,15 +97,9 @@ const httpCall = async <T>(
   }
 };
 
-export type AuthQueryOptions = {
-  dependencies?: boolean[];
-  notifyOnChangeProps?: NotifyOnChangeProps;
-};
-
 export const useAuthenticatedQuery = <T>(
   queryKey: unknown[],
   queryConfig: AxiosRequestConfig,
-  additionalOptions?: AuthQueryOptions,
   refetchOnWindowFocus?: boolean,
 ): UseQueryResult<Response<T>> => {
   const msalDetails = useMsal();
@@ -113,8 +107,6 @@ export const useAuthenticatedQuery = <T>(
   const result = useQuery({
     queryKey,
     queryFn: () => httpCall<T>(queryConfig, msalDetails, navigate),
-    enabled: (additionalOptions?.dependencies ?? []).every((x) => x),
-    notifyOnChangeProps: additionalOptions?.notifyOnChangeProps ?? ['data', 'error'],
     refetchOnWindowFocus: refetchOnWindowFocus ?? false,
     retry: false,
   });

@@ -1,10 +1,10 @@
 // models/user.js
 
-"use strict";
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
+    'User',
     {
       id: {
         type: DataTypes.BIGINT.UNSIGNED,
@@ -62,9 +62,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "users",
+      tableName: 'users',
       timestamps: false,
-    }
+    },
   );
 
   return User;

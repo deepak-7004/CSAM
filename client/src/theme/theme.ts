@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { createTheme } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 import * as React from 'react';
@@ -7,7 +6,7 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     commonTitle: true;
   }
-} 
+}
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -22,6 +21,14 @@ declare module '@mui/material/styles' {
 interface ExtendedTypographyOptions extends TypographyOptions {
   commonTitle: React.CSSProperties;
 }
+
+// Define the custom button style for .navLink
+export const customButtonStyle = {
+  fontFamily: 'Avantt',
+  textTransform: 'capitalize',
+  fontSize: '16px',
+  padding: '8px 14px',
+};
 
 const theme = createTheme({
   palette: {
@@ -46,21 +53,37 @@ const theme = createTheme({
       position: 'relative',
       textAlign: 'center',
       margin: '0 auto',
+      '@media (max-width: 600px)': {
+        fontSize: '18px', // Adjust the font size for smaller screens
+      },
     },
     h2Bold: {
       // Add your h2Bold styles here if needed
     },
-    
   } as ExtendedTypographyOptions,
+  // components: {
+  //   MuiButton: {
+  //     styleOverrides: {
+  //       root: {},
+  //       ...(customButtonStyle && { navLink: customButtonStyle }),
+  //     },
+  //   },
+  // },
 
-});
-
-
-theme.typography.commonTitle = {
-  ...theme.typography.commonTitle,
-  '@media (max-width: 600px)': {
-    fontSize: '18px', // Adjust the font size for smaller screens
+  components: {
+    MuiMenu: {
+      styleOverrides: {
+        list: {
+          '&[role="menu"]': {
+            backgroundColor: '#000312',
+          },
+          listItem: {
+            color: '#fff',
+          },
+        },
+      },
+    },
   },
-};
+});
 
 export default theme;

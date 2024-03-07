@@ -7,37 +7,35 @@ import { Button, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import 'csam/App.css';
 import 'csam/Custom.css';
-import Layout from 'csam/components/Layout';
-import Archives from 'csam/pages/Archives';
-import Gamecontests from 'csam/pages/GameContest';
-import Goodreads from 'csam/pages/GoodReads';
-import Home from 'csam/pages/Home';
-import Leaderboard from 'csam/pages/Leaderboard';
-import Monthbanner from 'csam/pages/MonthBanner';
-import Toolsresources from 'csam/pages/ToolsResources';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import FeedbackModal from 'csam/components/FeedbackModal';
+import router from 'csam/router';
 import theme from 'csam/theme/theme';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Suspense, useState } from 'react';
+import { RouterProvider } from 'react-router-dom';
 
 const App = () => {
   const isAuthenticated = useIsAuthenticated();
   const { inProgress } = useMsal();
+  const queryClient = new QueryClient();
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
 
   return (
     <ThemeProvider theme={theme}>
       <MsalAuthenticationTemplate interactionType={InteractionType.Redirect} authenticationRequest={{}}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="Monthbanner" element={<Monthbanner />} />
-              <Route path="Goodreads" element={<Goodreads />} />
-              <Route path="Gamecontests" element={<Gamecontests />} />
-              <Route path="Toolsresources" element={<Toolsresources />} />
-              <Route path="Archives" element={<Archives />} />
-              <Route path="Leaderboard" element={<Leaderboard />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <Suspense>
+            <RouterProvider router={router} />
+          </Suspense>
+
+          <Button onClick={handleOpen} className="doFeedBack">
+            Feedback
+          </Button>
+          <FeedbackModal open={modalOpen} onClose={handleClose} />
+        </QueryClientProvider>
       </MsalAuthenticationTemplate>
 
       {inProgress === InteractionStatus.None && !isAuthenticated && (
@@ -45,8 +43,6 @@ const App = () => {
           <Typography>Your are not Authorized</Typography>
         </UnauthenticatedTemplate>
       )}
-
-      <Button>Feedback</Button>
     </ThemeProvider>
   );
 };

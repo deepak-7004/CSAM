@@ -1,6 +1,11 @@
+html, body, button{
+  font-family: "Avantt" !important;
+}
+
 .headerTop {
   background: rgba(0, 0, 0, 0.28) !important;
   backdrop-filter: blur(44px);
+  position: sticky !important;
 }
 
 .MuiPaper-root {
@@ -137,16 +142,16 @@
   object-fit: cover;
 }
 
-.news_cards .slick-prev:before{
+.news_cards .slick-prev:before {
   content: url(./images/arrow-left.png);
 }
 
-.news_cards .slick-next:before{
+.news_cards .slick-next:before {
   content: url(./images/arrow-right.png);
 }
 
 
-.searchReads{
+.searchReads {
   position: relative;
   max-width: 50%;
   margin: 0 auto;
@@ -184,10 +189,156 @@
   border-radius: 10px 10px 0 0 !important;
 }
 
+.navbar-toggler-icon {
+  background-image: url(./images/menu-toggler.png);
+  background-size: 30px;
+}
+
+.adminLogo {
+  width: 140px;
+}
+
+.navbar{
+  top: 80px;
+}
+
+.navLink {
+  font-family: 'Avantt' !important;
+  text-transform: capitalize !important;
+  font-size: 16px !important;
+  padding: 8px 10px !important;
+}
+
+.cardfirst .hovr_state h2 {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.feedbacModal .css-1wnsr1i {
+  max-width: 650px;
+  width: 100%;
+  background: #01091B;
+  border: 1px solid #FFFFFF4D;
+  border-radius: 10px;
+  background-image: url(/src/images/feedback-bg.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.feedbacModal #modal-modal-title {
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Avantt';
+  position: relative;
+}
+
+.feedbacModal #modal-modal-title:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 5px;
+  width: 88px;
+  background: linear-gradient(89.76deg, #E4B131 0.77%, #EDC820 77.58%, #FFF200 115.98%);
+}
+
+.feedbacModal p {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 35px;
+}
+
+.ratingWrapper .ratingInput {
+  width: 10%;
+  height: 50px;
+  text-align: center;
+  background: transparent;
+  color: transparent;
+  background: linear-gradient(66.91deg, #E4B131 26.05%, #FFF200 108.24%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: 'Avantt';
+  border: 1.19px solid #FFFFFF4A;
+  cursor: pointer;
+}
+
+.ratingWrapper .ratingInput.clicked {
+  background: linear-gradient(66.91deg, #E4B131 26.05%, #FFF200 108.24%);
+  -webkit-text-fill-color: #fff;
+  border: 1.19px solid #FFFFFF4A  
+}
+
+.ratingWrapper .ratingInput:focus-visible{
+  outline: none;
+}
+
+.feedbacModal small {
+  font-size: 16px;
+  font-weight: 600;
+  color: #686868;
+}
+
+.feedBackMessage {
+  background: #050C1A;
+  min-height: 180px;
+  width: 100%;
+  border: 1px solid #FFFFFF4D;
+  margin-top: 30px;
+  border-radius: 10px;
+  color: #696969;
+  font-weight: 600;
+  padding: 15px;
+}
+
+.submitFeedback {
+  background: linear-gradient(89.76deg, #E4B131 0.77%, #EDC820 77.58%, #FFF200 115.98%);
+  padding: 10px 62px !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  display: block !important;
+  margin: 20px auto 0 !important;
+  border-radius: 10px !important;
+  text-transform: capitalize !important;
+}
+
+
+.closeModal {
+  position: absolute !important;
+  right: 18px;
+  top: 33px;
+  z-index: 9;
+}
+
+.closeModal svg {
+  fill: #fff;
+  width: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* ----------------------- */
 /*----- Media Querys ----- */
 /* ----------------------- */
 @media(max-width: 768px) {
+  .hide-sm {
+    display: none !important;
+  }
+
   .banner_title h2 {
     font-size: 30px;
     line-height: 34px;
@@ -227,6 +378,15 @@
 
   .navbar {
     background: #000312;
+    padding: 10px 5px;
+  }
+
+  .navbar-collapse>ul {
+    margin-top: 10px;
+  }
+
+  .header_link.active:after {
+    display: none;
   }
 
   .cards_img img {
@@ -275,7 +435,7 @@
   .section_title h2::before {
     left: -65px;
   }
-  
+
   .section_title h2::after {
     right: -65px;
   }

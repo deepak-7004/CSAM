@@ -52,7 +52,7 @@ rules:
       ignoreDeclarationSort: true
   prettier/prettier:
     - error
-    - endOfLine: lf
+    - endOfLine: auto
   no-console: 0
   global-require: 0
   no-param-reassign: 0

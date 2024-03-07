@@ -59,7 +59,7 @@ const Goodreads: React.FC = () => {
             </Button>
 
             <Button className="searchOptions ">
-              <img src="./images_public/Sliders.png" alt="" />
+              <img src="./images_public/sliders.png" alt="" />
             </Button>
           </Box>
 

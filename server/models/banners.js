@@ -1,10 +1,8 @@
-// models/banner.js
-
-"use strict";
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const Banner = sequelize.define(
-    "Banner",
+    'Banner',
     {
       id: {
         type: DataTypes.BIGINT.UNSIGNED,
@@ -38,26 +36,26 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       image_en: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(1024),
         allowNull: true,
       },
       image_es: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(1024),
         allowNull: true,
       },
       image_za: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(1024),
         allowNull: true,
       },
       image_pt: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(1024),
         allowNull: true,
       },
     },
     {
-      tableName: "banners",
+      tableName: 'banners',
       timestamps: false,
-    }
+    },
   );
 
   return Banner;
