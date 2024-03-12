@@ -354,8 +354,13 @@ h2 {
 }
 
 .cardfourth .bg_dark h2 {
-  margin-top: 2%;
   font-size: 20px !important;
+  max-width: 66%;
+  margin: 0 auto;
+}
+
+.cardfourth  h2 {
+  width: 100%;
 }
 
 /* .cardfirst .bg_dark img{

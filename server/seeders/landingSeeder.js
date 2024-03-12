@@ -48,7 +48,7 @@ module.exports = {
           },
         },
         {
-          title: 'Tools & Resources',
+          title: 'GISP & OTHER Resources',
           image: 'toolsResources.png',
           hoveredImage: 'leaderbord.png',
           link: '/Toolsresources',

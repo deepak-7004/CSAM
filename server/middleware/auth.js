@@ -1,18 +1,33 @@
-const expressJwt = require('express-jwt');
 const jwt = require('jsonwebtoken');
-const guard = require('express-jwt-permissions')();
 
-const secret = 'your-secret-key'; // replace with your secret key
+exports.checkPermissions = function (requiredPermissions) {
+  return (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
 
-// Middleware to check JWT
-exports.checkJwt = expressJwt({ secret });
+    if (!token) {
+      return res.sendStatus(401);
+    }
 
-// Middleware to check permissions
-exports.checkPermissions = (permissions) => {
-  return [this.checkJwt, guard.check(permissions)];
-};
+    jwt.verify(
+      token,
+      'this-is-very-long-secret-that-can-not-be-cracked-easily',
+      (err, payload) => {
+        if (err) {
+          return res.sendStatus(403);
+        }
 
-// Function to sign JWTs
-exports.signJwt = (payload) => {
-  return jwt.sign(payload, secret);
+        const userPermissions = payload.permissions;
+        const hasRequiredPermissions = requiredPermissions.every((permission) =>
+          userPermissions.includes(permission),
+        );
+
+        if (!hasRequiredPermissions) {
+          return res.sendStatus(403);
+        }
+
+        next();
+      },
+    );
+  };
 };

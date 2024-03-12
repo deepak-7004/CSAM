@@ -12,16 +12,42 @@ const getUsers = async (req, res) => {
 };
 
 const ssoLogin = async (req, res) => {
-  const { email } = req.body;
+  const { username, name } = req.body;
+  if (!username || !name) {
+    return res
+      .status(400)
+      .send('Validation Error: Username and name are required');
+  }
+
+  const domain = username.split('@')[1].toLowerCase();
+  if (domain !== 'ab-inbev.com') {
+    return res
+      .status(400)
+      .send('Validation Error: Email domain is not an organization domain');
+  }
+
   try {
-    let user = await User.findOne({ where: { email } });
+    let user = await User.findOne({ where: { email: username } });
 
     if (!user) {
-      user = await User.create({ email });
+      user = await User.create({
+        email: username,
+        country: null,
+        name: name,
+        password: null,
+        role_id: 2,
+        avatar: 'users/default.png',
+      });
     }
 
+    const role = await user.getRole();
+    const permissions = await role.getPermissions();
+    const flattenedPermissions = permissions.map(
+      (permission) => permission.key,
+    );
+
     const token = jwttoken.sign(
-      { userId: user.id },
+      { userId: user.id, permissions: flattenedPermissions },
       'this-is-very-long-secret-that-can-not-be-cracked-easily',
       { expiresIn: '1h' },
     );

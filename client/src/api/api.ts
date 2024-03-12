@@ -22,7 +22,7 @@ const getAuthToken = async (msalDetails: IMsalContext, navigate: NavigateFunctio
         headers: {
           'Content-Type': 'application/json',
         },
-        data: { email: account?.username },
+        data: account,
       });
     } catch (err) {
       console.debug(err);

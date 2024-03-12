@@ -1,6 +1,20 @@
 const Sequelize = require('sequelize');
-const config = require('../config/dbConfig.js');
-const sequelize = new Sequelize(config);
+const config = require('../config/config.json');
+
+const env = process.env.NODE_ENV || 'development';
+// const env = 'staging';
+
+const envConfig = {
+  username: 'Cybersadsqlusersadsd',
+  password: 'Sqlcybersecurity@12345sdasd',
+  database: 'csam_react',
+  dialect: 'mysql',
+  host: '10.1.0.3',
+  socketPath:
+    '/cloudsql/abi-ghq-01190-cybersecurity:europe-west2:abi-ghq-cybersecurity-mysql-instance',
+};
+
+const sequelize = new Sequelize(config[env]);
 
 const db = {};
 
@@ -21,8 +35,12 @@ db.permission_roles = require('../models/permissionRoles.js')(
 db.permissions = require('../models/permissions.js')(sequelize, Sequelize);
 db.roles = require('../models/roles.js')(sequelize, Sequelize);
 db.landing_page = require('../models/landingPage.js')(sequelize, Sequelize);
+db.good_reads = require('../models/goodReads.js')(sequelize, Sequelize);
+db.good_read_newsletter = require('../models/goodReedNewsletter.js')(sequelize, Sequelize);
+db.good_read_suggested_articles = require('./goodReadSuggestedArticles.js')(sequelize, Sequelize);
 
 const models = {
+  User: db.users,
   Role: db.roles,
   Permission: db.permissions,
   PermissionRole: db.permission_roles,

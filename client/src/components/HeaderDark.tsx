@@ -15,7 +15,7 @@ const pages = [
   { name: 'Theme of the Month', route: '/Monthbanner' },
   { name: 'Games & Contests', route: '/Gamecontests' },
   { name: 'Good Reads', route: '/Goodreads' },
-  { name: 'Tools & Resources', route: '/Toolsresources' },
+  { name: 'Gisp & Resources', route: '/Toolsresources' },
   { name: 'Archives', route: '/Archives' },
 ];
 
@@ -104,6 +104,7 @@ const Headerdark: React.FC = () => {
                 anchorEl={notificationAnchorEl}
                 open={notificationMenuOpen}
                 onClose={handleNotificationClose}
+                disableScrollLock
                 MenuListProps={{
                   'aria-labelledby': 'notification-button',
                 }}
@@ -138,6 +139,7 @@ const Headerdark: React.FC = () => {
                 anchorEl={anchorEl}
                 open={menuOpen}
                 onClose={handleClose}
+                disableScrollLock
                 MenuListProps={{
                   'aria-labelledby': 'basic-button',
                 }}

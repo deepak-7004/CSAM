@@ -36,6 +36,7 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ open, onClose }) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       className="feedbacModal"
+      disableScrollLock
     >
       <Box sx={style}>
         <Typography id="modal-modal-title" variant="h3" component="h2">
