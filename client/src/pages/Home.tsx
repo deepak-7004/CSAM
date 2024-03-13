@@ -1,47 +1,88 @@
-import { useMsal } from '@azure/msal-react';
 import { Box, Card, Container, Grid, Paper, Typography } from '@mui/material';
-import { useIsAuthorized } from 'csam/api/api';
-// import fetchQuery from 'csam/api/api';
+import { useAuthenticatedQuery } from 'csam/api/api';
 import Videobg from 'csam/assets/video/bg_video.mp4';
-import Header from 'csam/components/header';
-import Homeimg1 from 'csam/images/home_img1.png';
-import Homeimg2 from 'csam/images/home_img2.png';
-import Homeimg3 from 'csam/images/home_img3.png';
-import Homeimg4 from 'csam/images/home_img4.png';
-import toolsImg from 'csam/images/toolsResources.png';
-import homeContent from 'csam/pages/jsonContent/Home.json';
-import * as React from 'react';
+import Headerdark from 'csam/components/HeaderDark';
+import { fixed, publicURL } from 'csam/utils/Constants';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+interface CardStyle {
+  className: string;
+}
+
+interface CardData {
+  id: number;
+  link: string;
+  image: string;
+  title: string;
+  status: string;
+  cardStyle: CardStyle;
+  hoveredImage: string;
+}
+
+interface HomeContent {
+  cards: CardData[];
+  heading: string;
+  description: string;
+}
+
+interface DataItem {
+  id: number;
+  name: string;
+  background_type: boolean;
+  status: boolean;
+  year_id: number;
+  background_video: string;
+  background_image: string;
+  homeContent: HomeContent;
+}
+
+interface HomePageData {
+  success: boolean;
+  data: DataItem[];
+}
+
+interface CardProps {
+  card: CardData;
+  extraClass: string;
+}
+
+const CardComponent: React.FC<CardProps> = ({ card, extraClass }) => (
+  <>
+    <Box className="cards_img">
+      <img className={`img-responsive ${extraClass}`} alt="home" src={`${publicURL}images_public/${card.image}`} />
+      <Typography component="h2">{card.title}</Typography>
+    </Box>
+    <Box className="hovr_state">
+      <NavLink to={card.link}>
+        <Box className="bg_dark">
+          <img src={`${publicURL}images_public/${card.hoveredImage}`} alt="" />
+          <Typography className="text_hoverstate" component="h2">
+            {card.title}
+          </Typography>
+        </Box>
+      </NavLink>
+    </Box>
+  </>
+);
+
 const Home: React.FC = () => {
-  useIsAuthorized();
-  const { accounts } = useMsal();
-  const name = accounts[0]?.name;
+  const { isPending, error, data } = useAuthenticatedQuery<HomePageData>(['landingPage', 'landingPageData'], {
+    url: `${fixed}crud/landing-pages`,
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (isPending) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (data && !data.success) return <div>Internal Server Error</div>;
+
+  const homeContent = JSON.parse(data.data[0]?.homeContent);
+
   return (
-    // const [videoSrc, setVideoSrc] = useState<string>('');
-    // const fetchData = async () => {
-    //   try {
-    //     const data = await fetchQuery('/file/bg_video.mov', { key: 'value' }, 'GET');
-    //     console.log('data', data);
-    //     setVideoSrc(data.videoSrc);
-    //   } catch (error) {
-    //     console.error('An error occurred:', error);
-    //   }
-    // };
-
-    // useEffect(() => {
-    //   console.log(
-    //     'import.meta.env`, import.meta.env.REACT_APP_API_ADDRESS',
-    //     import.meta.env,
-    //     import.meta.env.VITE_API_URL,
-    //   );
-    //   // fetchData();
-    // }, []);
-
     <>
-      <Header />
+      <Headerdark />
       <ToastContainer />
       <Box className="bgimage">
         <video autoPlay loop muted className="bg_video">
@@ -51,116 +92,31 @@ const Home: React.FC = () => {
         <Box className="content_home">
           <Typography component="h2">
             Cyber <span>security</span> <br />
-            awareness month {name}
+            awareness Portal
           </Typography>
 
           <Typography variant="body1" mb={2}>
             {homeContent.description}{' '}
           </Typography>
-
           <Container>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={5}>
                 <Paper>
                   <Card className="cardfirst ">
-                    <Box className="cards_img">
-                      <img className="img-responsive" alt="home" src={Homeimg1} />
-                      <Typography component="h2">{homeContent.categories.themeOfMonth.title}</Typography>
-                    </Box>
-
-                    <Box className="hovr_state">
-                      <NavLink to={homeContent.categories.themeOfMonth.link}>
-                        <Box className="bg_dark">
-                          <img src="../images_public/wallpaper_1.svg" alt="" />
-                          <Typography className="text_hoverstate" component="h2">
-                            Theme of <br />
-                            the month
-                          </Typography>
-                        </Box>
-                      </NavLink>
-                    </Box>
+                    <CardComponent card={homeContent.cards[0]} extraClass="" />
                   </Card>
                 </Paper>
               </Grid>
 
               <Grid item xs={12} sm={7}>
                 <Grid container spacing={2}>
-                  <Grid item xs={6}>
-                    <Box className="cardsecond cardHome">
-                      <Box className="cards_img">
-                        <img className="img-responsive fit_height" alt="home" src={Homeimg2} />
-                        <Typography component="h2">{homeContent.categories.gamesAndContests.title}</Typography>
+                  {homeContent.cards.slice(1).map((card: CardData) => (
+                    <Grid item xs={6} key={`${card.id}-${card.title}`}>
+                      <Box className={card.cardStyle.className}>
+                        <CardComponent card={card} extraClass="fit_height" key={`${card.id}-${card.title}`} />
                       </Box>
-                      <Box className="hovr_state">
-                        <NavLink to={homeContent.categories.gamesAndContests.link}>
-                          <Box className="bg_dark">
-                            <img src="../images_public/game.png" alt="" />
-                            <Typography className="text_hoverstate" component="h2">
-                              {homeContent.categories.gamesAndContests.title}
-                            </Typography>
-                          </Box>
-                        </NavLink>
-                      </Box>
-                    </Box>
-                    <Box className="cardsecond cardHome">
-                      <Box className="hovr_state">
-                        <NavLink to={homeContent.categories.gamesAndContests.link}>
-                          <Box className="bg_dark">
-                            <img src="../images_public/game.png" alt="" />
-                            <h2 className="text_hoverstate">Games & Contest</h2>
-                          </Box>
-                        </NavLink>
-                      </Box>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Box className="cardthird cardHome">
-                      <Box className="cards_img">
-                        <img className="img-responsive fit_height" alt="home" src={Homeimg3} />
-                        <h2>{homeContent.categories.goodReads.title}</h2>
-                      </Box>
-                      <Box className="hovr_state">
-                        <NavLink to={homeContent.categories.goodReads.link}>
-                          <Box className="bg_dark">
-                            <img className="border_none" src="../images_public/read.png" alt="" />
-                            <h2 className="text_hoverstate">{homeContent.categories.goodReads.title}</h2>
-                          </Box>
-                        </NavLink>
-                      </Box>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Box className="cardfourth cardHome">
-                      <Box className="cards_img">
-                        <img className="img-responsive fit_height" alt="home" src={Homeimg4} />
-                        <h2>{homeContent.categories.leaderboard.title}</h2>
-                      </Box>
-                      <Box className="hovr_state">
-                        <NavLink to={homeContent.categories.leaderboard.link}>
-                          <Box className="bg_dark">
-                            <img src="../images_public/leaderbord.png" alt="" />
-                            <h2 className="text_hoverstate">{homeContent.categories.leaderboard.title}</h2>
-                          </Box>
-                        </NavLink>
-                      </Box>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Box className="cardfourth cardHome">
-                      <Box className="cards_img">
-                        <img className="img-responsive fit_height" alt="home" src={toolsImg} />
-                        <h2>{homeContent.categories.toolsAndResources.title}</h2>
-                      </Box>
-                      <Box className="hovr_state">
-                        <NavLink to={homeContent.categories.toolsAndResources.link}>
-                          <Box className="bg_dark">
-                            <img src="../images_public/leaderbord.png" alt="" />
-                            <h2 className="text_hoverstate">{homeContent.categories.toolsAndResources.title}</h2>
-                          </Box>
-                        </NavLink>
-                      </Box>
-                    </Box>
-                  </Grid>
+                    </Grid>
+                  ))}
                 </Grid>
               </Grid>
             </Grid>

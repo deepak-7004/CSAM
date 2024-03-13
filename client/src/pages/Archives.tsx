@@ -10,7 +10,7 @@ const Archives: React.FC = () => (
     <Box className="pagebannerarchives">
       <Container>
         <Box className="banner_title">
-          <Typography component="h4">CSAM</Typography>
+          <Typography component="h4">CSAP</Typography>
           <Typography component="h2">
             <span className="lineLeft" />
             ARCHIVES

@@ -1,10 +1,10 @@
 // models/archives.js
 
-"use strict";
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const Archives = sequelize.define(
-    "Archives",
+    'Archives',
     {
       id: {
         type: DataTypes.BIGINT.UNSIGNED,
@@ -29,19 +29,19 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       thumbnail_en: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
       thumbnail_es: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
       thumbnail_zh: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
       thumbnail_pt: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
       file_en: {
@@ -62,9 +62,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "archives",
+      tableName: 'archives',
       timestamps: false,
-    }
+    },
   );
 
   return Archives;

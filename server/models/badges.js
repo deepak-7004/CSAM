@@ -1,10 +1,10 @@
 // models/badge.js
 
-"use strict";
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const Badge = sequelize.define(
-    "Badge",
+    'Badge',
     {
       id: {
         type: DataTypes.BIGINT.UNSIGNED,
@@ -41,18 +41,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       icon_faded: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
       icon_original: {
-        type: DataTypes.BLOB('long'),
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
     },
     {
-      tableName: "badges",
+      tableName: 'badges',
       timestamps: false,
-    }
+    },
   );
 
   return Badge;

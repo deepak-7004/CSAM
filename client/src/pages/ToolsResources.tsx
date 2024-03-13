@@ -9,7 +9,7 @@ const Toolsresources: React.FC = () => (
     <Box className="pagebannertools">
       <Box className="container">
         <Box className="banner_title">
-          <Typography component="h4">Tools &</Typography>
+          <Typography component="h4">GISP & OTHER</Typography>
           <Typography component="h2">RESOURCES</Typography>
           <Typography variant="body1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
@@ -35,7 +35,7 @@ const Toolsresources: React.FC = () => (
               <Box className="card_item">
                 <img src="./images_public/tools_card1.png" alt="" />
                 <Box className="arrow_external">
-                  <img src="./images_public/file-manager.png" alt="Arrow" />
+                  <img src="./images_public/folder.png" alt="Arrow" />
                 </Box>
                 <Box className="news_contnt mt-2">
                   <Typography className="py-3" component="h4">
@@ -51,7 +51,7 @@ const Toolsresources: React.FC = () => (
               <Box className="card_item">
                 <img src="./images_public/tools_card2.png" alt="" />
                 <Box className="arrow_external">
-                  <img src="./images_public/file-manager.png" alt="Arrow" />
+                  <img src="./images_public/folder.png" alt="Arrow" />
                 </Box>
                 <Box className="news_contnt mt-2">
                   <Typography className="py-3" component="h4">
@@ -67,7 +67,7 @@ const Toolsresources: React.FC = () => (
               <Box className="card_item">
                 <img src="./images_public/tools_card3.png" alt="" />
                 <Box className="arrow_external">
-                  <img src="./images_public/file-manager.png" alt="Arrow" />
+                  <img src="./images_public/folder.png" alt="Arrow" />
                 </Box>
                 <Box className="news_contnt mt-2">
                   <Typography className="py-3" component="h4">

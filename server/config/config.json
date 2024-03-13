@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "csam",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "staging": {
+    "username": "Cybersqluser",
+    "password": "Sqlcybersecurity@12345",
+    "database": "csam_react",
+    "dialect": "mysql",
+    "host": "10.1.0.3",
+    "socketPath": "/cloudsql/abi-ghq-01190-cybersecurity:europe-west2:abi-ghq-cybersecurity-mysql-instance"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

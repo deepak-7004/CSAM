@@ -1,10 +1,10 @@
 // models/activities.js
 
-"use strict";
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const Activity = sequelize.define(
-    "Activity",
+    'Activity',
     {
       id: {
         type: DataTypes.INTEGER.UNSIGNED,
@@ -27,17 +27,17 @@ module.exports = (sequelize, DataTypes) => {
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: DataTypes.literal("CURRENT_TIMESTAMP"),
+        defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
       },
-      updated_at: { 
+      updated_at: {
         type: DataTypes.DATE,
         allowNull: true,
       },
     },
     {
-      tableName: "activities",
+      tableName: 'activities',
       timestamps: false,
-    }
+    },
   );
 
   return Activity;
